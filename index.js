@@ -31,3 +31,17 @@ app.post('/posts', saveNewPost);
 //listen for connections on port 3000
 app.listen(3000);
 console.log("Hi! I am listening at http://localhost:3000");
+
+//makes server listen to login post
+function login(request, response) {
+  console.log("someone tried to log in");
+  response.send("OK");
+}
+app.post("/login", login);
+
+//makes server listen to signup post
+function signup(request, response) {
+  console.log("someone tried to sign up");
+  response.send("OK");
+}
+app.post("/signup", signup);
