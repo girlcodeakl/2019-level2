@@ -22,12 +22,18 @@ function sendPostsList(request, response) {
 app.get('/posts', sendPostsList);
 
 //let a client POST something new
+
+
+
 function saveNewPost(request, response) {
   console.log(request.body.message); //write it on the command prompt so we can see
   let post= {};
+
   post.message = request.body.message;
   post.image = request.body.image;
+  post.time = new Date();
   posts.push(post); //save it in our list
+
   response.send("thanks for your message. Press back to add another");
   databasePosts.insert(post);
 }
@@ -50,3 +56,17 @@ MongoClient.connect(databaseUrl, {useNewUrlParser: true}, function(err, client) 
 //listen for connections on port 3000
 app.listen (process.env.PORT || 3000);
 console.log("Hi! I am listening at http://localhost:3000");
+
+//makes server listen to login post
+function login(request, response) {
+  console.log("someone tried to log in");
+  response.send("OK");
+}
+app.post("/login", login);
+
+//makes server listen to signup post
+function signup(request, response) {
+  console.log("someone tried to sign up");
+  response.send("OK");
+}
+app.post("/signup", signup);
