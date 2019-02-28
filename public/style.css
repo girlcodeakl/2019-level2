@@ -17,6 +17,43 @@ h1 {
   border: 2px solid #FFB03B;
   border-radius: 5px;
   color: #468966;
+
+}
+.topnav {
+  background-color: white;
+  overflow: hidden;
+  color: black;
+  text-align: right;
+  text-decoration: none;
+  top: 0;
+ }
+.topnav a {
+    color: black;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  .topnav a:hover {
+    background-color: black;
+    color: white;
+    }
+    .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+    .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+.time {
+  color: black;
 }
 
 input {

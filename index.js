@@ -22,11 +22,18 @@ function sendPostsList(request, response) {
 app.get('/posts', sendPostsList);
 
 //let a client POST something new
+
+
+
 function saveNewPost(request, response) {
   console.log(request.body.message); //write it on the command prompt so we can see
   let post= {};
-post.message = request.body.message;
-posts.push(post); //save it in our list
+
+  post.message = request.body.message;
+  post.image = request.body.image;
+  post.time = new Date();
+  posts.push(post); //save it in our list
+
   response.send("thanks for your message. Press back to add another");
   databasePosts.insert(post);
 }
