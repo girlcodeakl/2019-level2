@@ -15,6 +15,7 @@
   <form method="post" action="/posts">
     <input type="text" name="message" value="message goes here" class="messageInput">
     <button class="postButton">Post it!</button>
+    <input type="text" name="image" value="URL goes here" class="imageInput">
   </form>
 <div class="note"></div>
   <script>
@@ -24,6 +25,7 @@
     e.preventDefault();
     let data = {};
     data.message = document.querySelector(".messageInput").value;
+    data.image = document.querySelector(".imageInput").value;
     document.querySelector(".note").innerHTML = "Saved! Check out the feed for your post.";
     fetch("/posts", {
       method:"POST",

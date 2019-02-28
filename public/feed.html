@@ -24,6 +24,7 @@ function displayMessage(post) {
 
   let postHTML =
   '<div class="post">'
+  + '  <img src= '+ post.image + '>'
   + '<div class="message">' + post.message + " " +'<div class="time">' + new timeago().format(post.time) + '</div>'
   + '</div>';
 
