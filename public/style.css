@@ -17,6 +17,8 @@ h1 {
   border: 2px solid #FFB03B;
   border-radius: 5px;
   color: #468966;
+  grid-column: 3 / 3;
+  grid-row:  3/3;
 
 }
 .topnav {
@@ -62,4 +64,16 @@ width: 200px;
 background: black;
 padding: 20px;
 color: white;
+justify-content: center;
+grid-column: 2 / 2;
+grid-row: 2/2;
 }
+
+.bodyUL {
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+}
+
