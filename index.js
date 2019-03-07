@@ -23,10 +23,19 @@ app.get('/posts', sendPostsList);
 
 //let a client POST something new
 function saveNewPost(request, response) {
-  console.log(request.body.message); //write it on the command prompt so we can see
-  console.log(request.body.author); 
+  console.log(request.body.image); //write it on the command prompt so we can see
+  console.log(request.body.artname);
+  console.log(request.body.artist);
+  console.log(request.body.description);
+  console.log(request.body.price);
+  console.log(request.body.hashtags);
   let post= {};
-post.message = request.body.message;
+post.image = request.body.image;
+post.artname = request.body.artname;
+post.artist = request.body.artist;
+post.description = request.body.description;
+post.price = request.body.price;
+post.hashtags = request.body.hashtags;
 posts.push(post); //save it in our list
   response.send("thanks for your message. Press back to add another");
   databasePosts.insert(post);
