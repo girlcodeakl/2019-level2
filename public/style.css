@@ -79,3 +79,10 @@ h3{
   font: arial;
   font-size:10px;
 }
+
+input {
+  display: block;
+  margin: 0 auto;
+
+
+}
