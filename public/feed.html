@@ -7,15 +7,19 @@
     <title>Message Feed</title>
     <link rel="stylesheet" href="style.css">
     <nav style="font-family:'arial black' "class="topnav">
-      <logo class="logo">ʕ•ᴥ•ʔ UNBEARABLE ART</logo>
-        <a class="active" href="/">HOME</a>
-        <a href="feed.html">DISCOVER</a>
-        <a href="post.html">UPLOAD</a>
-        <a href="login.html">SIGN UP</a>
-    </nav>
+        <div class="left" >
+        <logo class="logo">ʕ•ᴥ•ʔ UNBEARABLE ART</logo>
+        </div>
+        <div class="right" >
+            <a class="active" href="/">HOME</a>
+            <a href="feed.html">DISCOVER</a>
+            <a href="post.html">UPLOAD</a>
+            <a href="login.html">SIGN UP</a>
+        </div>
+        </nav>
   </head>
   <body>
-    <h3> Message Feed</h1>
+    <h3 class="title">Message Feed</h1>
     <div class="message-list">
     </div>
     <script>
@@ -25,7 +29,6 @@ function displayMessage(post) {
 
   let postHTML =
   '<div class="post">'
-  + '  <img src= '+ post.image + '>'
   + '<div class="message">' + post.message + " " +'<div class="time">' + new timeago().format(post.time) + '</div>'
   + '</div>';
 
