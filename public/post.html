@@ -12,6 +12,10 @@
 </head>
 <body>
 
+  <div class="uploadicon">
+  PoST artwork.
+  </div>
+
   <form method="post" action="/posts">
     <input type="text" name="message" value="message goes here" class="messageInput">
     <button class="postButton">Post it!</button>
@@ -30,7 +34,10 @@
       body: JSON.stringify(data),
       headers: {'Content-Type': 'application/json'}
     });
+
   }
+  
+
 
   </script>
 
