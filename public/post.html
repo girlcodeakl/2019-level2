@@ -13,10 +13,13 @@
 <body>
 
   <form method="post" action="/posts">
-    <input type="text" name="message" value="message goes here" class="messageInput">
-    <button class="postButton">Post it!</button>
-    <input type="text" name="image" value="URL goes here" class="imageInput">
-  </form>
+    <label for="image">Upload Image</label> <input type="text" name="image" value="URL goes here" class="imageInput">
+    <label for="artname">Artwork Name</label><input type="text" id="artname" name="artname" placeholder="Artwork name">
+    <label for="description">Description</label><input type="text" id="description" name="description" placeholder="Description">
+    <label for="price">Price</label><input type="text" id="price" name="price" placeholder="Retail price">
+    <label for="hashtags">Hashtags (#)</label><input type="text" id="hashtags" name="hashtags" placeholder="Add hashtags">
+    <button class="postButton">Submit</button>
+    </form>
 <div class="note"></div>
   <script>
 
