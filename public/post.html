@@ -12,7 +12,13 @@
   </nav>
 </head>
 <body>
+<div class="bodyUL">
+  <div class="uploadicon">
+    PoST artwork.
+  
 
+
+   
   <form method="post" action="/posts">
     <label for="image">Upload Image</label> <input type="text" name="image" value="URL goes here" class="imageInput">
     <label for="artname">Artwork Name</label><input type="text" id="artname" name="artname" placeholder="Artwork name">
@@ -24,8 +30,9 @@
 <div class="note"></div>
   <script>
 
-  document.querySelector(".postButton").addEventListener("click", sendMessageToServer);
-  function sendMessageToServer(e) {
+
+    document.querySelector(".postButton").addEventListener("click", sendMessageToServer);
+    function sendMessageToServer(e) {
     e.preventDefault();
     let data = {};
     data.message = document.querySelector(".messageInput").value;
@@ -36,7 +43,11 @@
       body: JSON.stringify(data),
       headers: {'Content-Type': 'application/json'}
     });
-  }
+
+    }
+
+  
+
 
   </script>
 
