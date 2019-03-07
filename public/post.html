@@ -4,6 +4,7 @@
   <meta charset='utf-8'>
   <link rel="stylesheet" href="style.css">
   <nav style="font-family:'arial black' "class="topnav">
+      <logo class="logo">ʕ•ᴥ•ʔ UNBEARABLE ART</logo>
       <a class="active" href="/">HOME</a>
       <a href="feed.html">DISCOVER</a>
       <a href="post.html">UPLOAD</a>
@@ -16,18 +17,26 @@
     PoST artwork.
   
 
-    <form method="post" action="/posts">
-    <input type="text" name="message" value="message goes here" class="messageInput">
-    <button class="postButton">Post it!</button>
+
+   
+  <form method="post" action="/posts">
+    <label for="image">Upload Image</label> <input type="text" name="image" value="URL goes here" class="imageInput">
+    <label for="artname">Artwork Name</label><input type="text" id="artname" name="artname" placeholder="Artwork name">
+    <label for="description">Description</label><input type="text" id="description" name="description" placeholder="Description">
+    <label for="price">Price</label><input type="text" id="price" name="price" placeholder="Retail price">
+    <label for="hashtags">Hashtags (#)</label><input type="text" id="hashtags" name="hashtags" placeholder="Add hashtags">
+    <button class="postButton">Submit</button>
     </form>
-    <div class="note"></div>
-    <script>
+<div class="note"></div>
+  <script>
+
 
     document.querySelector(".postButton").addEventListener("click", sendMessageToServer);
     function sendMessageToServer(e) {
     e.preventDefault();
     let data = {};
     data.message = document.querySelector(".messageInput").value;
+    data.image = document.querySelector(".imageInput").value;
     document.querySelector(".note").innerHTML = "Saved! Check out the feed for your post.";
     fetch("/posts", {
       method:"POST",
