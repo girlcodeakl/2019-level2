@@ -24,6 +24,13 @@ function sendPostsList(request, response) {
 }
 app.get('/posts', sendPostsList);
 
+//Home page random image
+function sendRandomPostsList(request, response) {
+  let randomPost = posts[Math.floor(Math.random() * posts.length)];
+  response.send(randomPost);
+}
+app.get('/homepagepost', sendRandomPostsList);
+
 //let a client POST something new
 function saveNewPost(request, response) {
 
