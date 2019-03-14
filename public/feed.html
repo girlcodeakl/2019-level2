@@ -25,7 +25,7 @@ function displayMessage(post) {
 
   let postHTML =
   '<div class="post">'
-  + '  <img src= '+ post.image + '>'
+  + '  <img src=data:' + post.imagetype +';base64,'+ post.image + '>'
   + '<div class="artname">' + post.artname + '</div>'
   + '<div class="artist">' + post.artist + '</div>'
   + '<div class="description">' + post.description + '</div>'
