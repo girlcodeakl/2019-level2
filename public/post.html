@@ -48,7 +48,7 @@
     data.append ('artname', document.querySelector("#artname").value);
     data.append ('description', document.querySelector("#description").value);
     data.append ('price', document.querySelector("#price").value);
-    data.append ('hashtags', = document.querySelector("#hashtags").value);
+    data.append ('hashtags', document.querySelector("#hashtags").value);
 
     document.querySelector(".note").innerHTML = "Saved! Check out the feed for your post.";
     fetch("/posts", {
