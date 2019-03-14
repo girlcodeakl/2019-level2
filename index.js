@@ -3,6 +3,9 @@ let databasePosts = null;
 let express = require('express')
 let app = express();
 let bodyParser = require('body-parser')
+let formidable = require('formidable');
+let Binary = require('mongodb').Binary;
+let fs = require('fs');
 
 //If a client asks for a file,
 //look in the public folder. If it's there, give it to them.
@@ -23,22 +26,28 @@ app.get('/posts', sendPostsList);
 
 //let a client POST something new
 function saveNewPost(request, response) {
-  console.log(request.body.image); //write it on the command prompt so we can see
-  console.log(request.body.artname);
-  console.log(request.body.artist);
-  console.log(request.body.description);
-  console.log(request.body.price);
-  console.log(request.body.hashtags);
-  let post= {};
-post.image = request.body.image;
-post.artname = request.body.artname;
-post.artist = request.body.artist;
-post.description = request.body.description;
-post.price = request.body.price;
-post.hashtags = request.body.hashtags;
-posts.push(post); //save it in our list
-  response.send("thanks for your message. Press back to add another");
-  databasePosts.insert(post);
+
+  let form = new formidable.IncomingForm();//did i paste this in the right place?
+  form.parse(request, function(err, fields, files) {
+    console.log(request.body.image); //write it on the command prompt so we can see
+    console.log(request.body.artname);
+    console.log(request.body.artist);
+    console.log(request.body.description);
+    console.log(request.body.price);
+    console.log(request.body.hashtags);
+    let post= {};
+    post.image = Binary(fs.readFileSync(files.image.path));
+    post.imageType = files.image.type;
+    post.artname = request.body.artname;
+    post.artist = request.body.artist;
+    post.description = request.body.description;
+    post.price = request.body.price;
+    post.hashtags = request.body.hashtags;//
+    posts.push(post); //save it in our list
+    response.send("thanks for your message. Press back to add another");
+    databasePosts.insert(post);
+  });
+
 }
 app.post('/posts', saveNewPost);
 let MongoClient = require('mongodb').MongoClient;
