@@ -36,12 +36,11 @@ function saveNewPost(request, response) {
 
   let form = new formidable.IncomingForm();//did i paste this in the right place?
   form.parse(request, function(err, fields, files) {
-    console.log(request.body.image); //write it on the command prompt so we can see
-    console.log(request.body.artname);
-    console.log(request.body.artist);
-    console.log(request.body.description);
-    console.log(request.body.price);
-    console.log(request.body.hashtags);
+     //write it on the command prompt so we can see
+    console.log(fields.artname);
+    console.log(fields.description);
+    console.log(fields.price);
+    console.log(fields.hashtags);
 /*if ( files.image == null ) {
   console.log ( "object is null")
   response.send("Hey you can't post unless you have an image");
@@ -51,11 +50,10 @@ function saveNewPost(request, response) {
     let post= {};
     post.image = Binary(fs.readFileSync(files.image.path));
     post.imageType = files.image.type;
-    post.artname = request.body.artname;
-    post.artist = request.body.artist;
-    post.description = request.body.description;
-    post.price = request.body.price;
-    post.hashtags = request.body.hashtags;//
+    post.artname = fields.artname;
+    post.description = fields.description;
+    post.price = fields.price;
+    post.hashtags = fields.hashtags;//
     posts.push(post); //save it in our list
     response.send("thanks for your message. Press back to add another");
     databasePosts.insert(post);

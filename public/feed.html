@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="/timeago.min.js"></script>
-    <title>Message Feed</title>
-    <link rel="stylesheet" href="style.css">
-    <nav style="font-family:'arial black' "class="topnav">
-        <div class="left" >
-        <logo class="logo">ʕ•ᴥ•ʔ UNBEARABLE ART</logo>
-        </div>
-        <div class="right" >
-            <a class="active" href="/">HOME</a>
-            <a href="feed.html">DISCOVER</a>
-            <a href="post.html">UPLOAD</a>
-            <a href="login.html">SIGN UP</a>
-        </div>
-        </nav>
-  </head>
-  <body>
-    <h3 style="font-family:'arial black' ">THE ART GALLERY</h1>
+
+<head>
+  <meta charset='utf-8'>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="/timeago.min.js"></script>
+  <title>Message Feed</title>
+  <link rel="stylesheet" href="style.css">
+  <nav style="font-family:'arial black' " class="topnav">
+    <div class="left">
+      <logo class="logo">ʕ•ᴥ•ʔ UNBEARABLE ART</logo>
+    </div>
+    <div class="right">
+      <a class="active" href="/">HOME</a>
+      <a href="feed.html">DISCOVER</a>
+      <a href="post.html">UPLOAD</a>
+      <a href="login.html">SIGN UP</a>
+      <input class="filter"> ● </input>
+    </div>
+  </nav>
+</head>
+
+<body>
+  <h3 style="font-family:'arial black' ">THE ART GALLERY</h1>
     <div class="message-list">
     </div>
     <script>
+      //Hello! This is the start of the JavaScript.
+
+      function displayMessage(post) {
 //Hello! This is the start of the JavaScript.
 
 function displayMessage(post) {
 
   let postHTML =
   '<div class="post">'
-  + '<div class="message">' + post.message + " " +'<div class="time">' + new timeago().format(post.time) + '</div>'
   + '  <img src=data:' + post.imagetype +';base64,'+ post.image + '>'
   + '<div class="artname">' + post.artname + '</div>'
-  + '<div class="artist">' + post.artist + '</div>'
   + '<div class="description">' + post.description + '</div>'
   + '<div class="price">' + post.price + '</div>'
   + '<div class="hashtags">' + post.hashtags + '</div>'
@@ -51,8 +55,45 @@ function createFeed(posts) {
 fetch("/posts")
   .then(response => response.json())
   .then(createFeed);
+        let postHTML =
+          '<div class="post">'
+          + '<div class="message">' + post.message + " " + '<div class="time">' + new timeago().format(post.time) + '</div>'
+          + '  <img src=data:' + post.imagetype + ';base64,' + post.image + '>'
+          + '<div class="artname">' + post.artname + '</div>'
+          + '<div class="artist">' + post.artist + '</div>'
+          + '<div class="description">' + post.description + '</div>'
+          + '<div class="price">' + post.price + '</div>'
+          + '<div class="hashtags">' + post.hashtags + '</div>'
+          + '<div class="time">' + new timeago().format(post.time) + '</div>'
+          + '</div>';
 
+        let messageList = document.querySelector(".message-list");
+        messageList.innerHTML += postHTML;
+      }
+
+      function createFeed(posts) {
+        posts.reverse();
+        posts.forEach(displayMessage);
+      }
+
+      fetch("/posts")
+        .then(response => response.json())
+        .then(createFeed);
+
+      function filterFeed(searchText) {
+        document.querySelectorAll(".post").forEach(function(element) {
+          searchText = document.querySelector(".filter").value;
+          console.log (searchText)
+          if (element.innerHTML.toLowerCase().includes(searchText.toLowerCase())) {
+            element.classList.remove("hidden");
+          } else {
+            element.classList.add("hidden");
+          }
+      });
+      }
+      document.querySelector(".filter").addEventListener("keyup", filterFeed);
 //This is the end of the JavaScript.
     </script>
-  </body>
+</body>
+
 </html>

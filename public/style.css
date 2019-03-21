@@ -80,6 +80,10 @@ display:inline-block;
     text-decoration: none;
     display: block;
     text-align: left;
+    }
+    .topnav input {
+      display: inline-block;
+    
   }
   .logo {
       color: black;
@@ -123,7 +127,8 @@ grid-row: 2/3;
 img { 
 max-width: 100%;
 }
-
+.hidden {display: none
+}
 
 .ULform {
   margin: 0 auto;
@@ -132,4 +137,10 @@ max-width: 100%;
   justify-content: center;
   grid-column: 3 / 4;
   grid-row: 2 / 3;
+  }
+
+  .randomImage {
+    margin: 0 auto;
+    width: 400px;
+    padding: 55px;
   }
