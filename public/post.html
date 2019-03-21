@@ -50,14 +50,15 @@
     data.price = document.querySelector("#price").value;
     data.hashtags = document.querySelector("#hashtags").value;
 
-    document.querySelector(".note").innerHTML = "Saved! Check out the feed for your post.";
+    
     fetch("/posts", {
       method:"POST",
       body: data,
-    });
-
-    }
-
+    })
+    .then(function(response) {
+      document.querySelector(".note").innerHTML = response;
+    })
+  }
   </script>
 
 

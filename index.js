@@ -42,6 +42,12 @@ function saveNewPost(request, response) {
     console.log(request.body.description);
     console.log(request.body.price);
     console.log(request.body.hashtags);
+/*if ( files.image == null ) {
+  console.log ( "object is null")
+  response.send("Hey you can't post unless you have an image");
+  return
+}
+*/
     let post= {};
     post.image = Binary(fs.readFileSync(files.image.path));
     post.imageType = files.image.type;
@@ -56,6 +62,7 @@ function saveNewPost(request, response) {
   });
 
 }
+
 app.post('/posts', saveNewPost);
 let MongoClient = require('mongodb').MongoClient;
 let databaseUrl = 'mongodb://girlcode2019:hats123@ds135305.mlab.com:35305/girlcode2019level2';
