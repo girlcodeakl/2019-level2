@@ -46,10 +46,10 @@
     e.preventDefault();
     let data = new FormData();
     data.append('image', document.querySelector("#image").files[0]);
-    data.artname = document.querySelector("#artname").value;
-    data.description = document.querySelector("#description").value;
-    data.price = document.querySelector("#price").value;
-    data.hashtags = document.querySelector("#hashtags").value;
+    data.append ('artname', document.querySelector("#artname").value);
+    data.append ('description', document.querySelector("#description").value);
+    data.append ('price', document.querySelector("#price").value);
+    data.append ('hashtags', document.querySelector("#hashtags").value);
 
     document.querySelector(".note").innerHTML = "Saved! Check out the feed for your post.";
     fetch("/posts", {

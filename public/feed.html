@@ -29,7 +29,32 @@
       //Hello! This is the start of the JavaScript.
 
       function displayMessage(post) {
+//Hello! This is the start of the JavaScript.
 
+function displayMessage(post) {
+
+  let postHTML =
+  '<div class="post">'
+  + '  <img src=data:' + post.imagetype +';base64,'+ post.image + '>'
+  + '<div class="artname">' + post.artname + '</div>'
+  + '<div class="description">' + post.description + '</div>'
+  + '<div class="price">' + post.price + '</div>'
+  + '<div class="hashtags">' + post.hashtags + '</div>'
+  +'<div class="time">' + new timeago().format(post.time) + '</div>'
+  + '</div>';
+
+  let messageList = document.querySelector(".message-list");
+  messageList.innerHTML += postHTML;
+}
+
+function createFeed(posts) {
+  posts.reverse();
+  posts.forEach(displayMessage);
+}
+
+fetch("/posts")
+  .then(response => response.json())
+  .then(createFeed);
         let postHTML =
           '<div class="post">'
           + '<div class="message">' + post.message + " " + '<div class="time">' + new timeago().format(post.time) + '</div>'
