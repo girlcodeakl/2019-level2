@@ -133,3 +133,9 @@ max-width: 100%;
   grid-column: 3 / 4;
   grid-row: 2 / 3;
   }
+
+  .randomImage {
+    margin: 0 auto;
+    width: 400px;
+    padding: 55px;
+  }

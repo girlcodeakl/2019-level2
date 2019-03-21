@@ -1,25 +1,46 @@
-
 <!DOCTYPE html>
 <html>
-  <head></head>
-  <title>Page Title</title>
-    <link rel="stylesheet" href="style.css">
-    <nav style="font-family:'arial black' "class="topnav">
-    <div class="left" >
+
+<head></head>
+<title>Page Title</title>
+<link rel="stylesheet" href="style.css">
+<nav style="font-family:'arial black' " class="topnav">
+  <div class="left">
     <logo class="logo">ʕ•ᴥ•ʔ UNBEARABLE ART</logo>
-    </div>
-    <div class="right" >
-        <a class="active" href="/">HOME</a>
-        <a href="feed.html">DISCOVER</a>
-        <a href="post.html">UPLOAD</a>
-        <a href="login.html">SIGN UP</a>
-    </div>
-    </nav>
-  </head>
-    <body>
-      <h1 class=>ಥ_ಥ</h1>
-      <h2 style="font-family:arial black;"> MISSING IMAGE</p>      
-      <a href="feed.html">VIEW ART</a>
-      <a href="post.html">UPLOAD ART</a>
-    </body>
+  </div>
+  <div class="right">
+    <a class="active" href="/">HOME</a>
+    <a href="feed.html">DISCOVER</a>
+    <a href="post.html">UPLOAD</a>
+    <a href="login.html">SIGN UP</a>
+  </div>
+</nav>
+</head>
+
+<body>
+  <div class="random-image"> </div>
+  <a href="feed.html">VIEW ART</a>
+  <a href="post.html">UPLOAD ART</a>
+
+  <script>
+    function displayImage(post) {
+      let imageHTML =
+        ' <img class="randomImage" src="data:' + post.imagetype + ';base64, ' + post.image + '">'
+      let randomImageHolder = document.querySelector(".random-image");
+      randomImageHolder.innerHTML += imageHTML;
+    }
+
+    function createImage(post) {
+      displayImage(post);
+    }
+
+    fetch("/homepagepost")
+      .then(response => response.json())
+      .then(createImage);
+
+  </script>
+
+</body>
+
 </html>
+
