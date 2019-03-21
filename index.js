@@ -41,12 +41,12 @@ function saveNewPost(request, response) {
     console.log(fields.description);
     console.log(fields.price);
     console.log(fields.hashtags);
-/*if ( files.image == null ) {
+if ( files.image == null ) {
   console.log ( "object is null")
   response.send("Hey you can't post unless you have an image");
   return
 }
-*/
+
     let post= {};
     post.image = Binary(fs.readFileSync(files.image.path));
     post.imageType = files.image.type;
