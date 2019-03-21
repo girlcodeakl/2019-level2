@@ -27,8 +27,6 @@ app.get('/posts', sendPostsList);
 //Home page random image
 function sendRandomPostsList(request, response) {
   let randomPost = posts[Math.floor(Math.random() * posts.length)];
-  console.log("cweubviearv",randomPost)
-  console.log(posts)
   response.send(randomPost);
 }
 app.get('/homepagepost', sendRandomPostsList);
