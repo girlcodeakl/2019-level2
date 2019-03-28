@@ -21,7 +21,7 @@
 <body>
   <div class="bodyUL">
     <div class="uploadicon">
-      PoST artwork.
+      Post Artwork.
     </div>
 
       <div class="ULform">
@@ -57,9 +57,14 @@
       body: data,
     })
     .then(function(response) {
-      document.querySelector(".note").innerHTML = response;
-    })
-  }
+      console.log(response)
+      response.text().then(function (text ) {
+      document.querySelector(".note").innerHTML = text;
+      })});
+
+      
+  };
+
   </script>
 
 

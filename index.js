@@ -42,7 +42,7 @@ function saveNewPost(request, response) {
     console.log(fields.price);
     console.log(fields.hashtags);
 if ( files.image == null ) {
-  console.log ( "object is null")
+  console.log ( "object is null");
   response.send("Hey you can't post unless you have an image");
   return
 }
@@ -55,7 +55,7 @@ if ( files.image == null ) {
     post.price = fields.price;
     post.hashtags = fields.hashtags;//
     posts.push(post); //save it in our list
-    response.send("thanks for your message. Press back to add another");
+    response.send("Thanks for your upload");
     databasePosts.insert(post);
   });
 
