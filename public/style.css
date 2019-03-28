@@ -144,3 +144,7 @@ max-width: 100%;
     width: 400px;
     padding: 55px;
   }
+
+  .postId {
+    display: none;
+  }

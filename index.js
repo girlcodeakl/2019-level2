@@ -47,6 +47,7 @@ function saveNewPost(request, response) {
     post.artname = fields.artname;
     post.description = fields.description;
     post.price = fields.price;
+    post.id = Math.round(Math.random() * 10000);
     post.hashtags = fields.hashtags;//
     posts.push(post); //save it in our list
     response.send("thanks for your message. Press back to add another");
