@@ -20,7 +20,7 @@ let posts = [];
 
 //let a client GET the list
 function sendPostsList(request, response) {
-  response.send(posts);
+  response.send(posts.slice (-15));
 }
 app.get('/posts', sendPostsList);
 
