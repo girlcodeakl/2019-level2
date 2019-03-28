@@ -84,7 +84,7 @@ fetch("/posts")
         document.querySelectorAll(".post").forEach(function(element) {
           searchText = document.querySelector(".filter").value;
           console.log (searchText)
-          if (element.innerHTML.toLowerCase().includes(searchText.toLowerCase())) {
+          if (element.textContent.toLowerCase().includes(searchText.toLowerCase())) {
             element.classList.remove("hidden");
           } else {
             element.classList.add("hidden");
