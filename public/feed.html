@@ -25,9 +25,13 @@
   <h3 style="font-family:'arial black' ">THE ART GALLERY</h1>
     <div class="message-list">
     </div>
+    <div class="loader"></div>
     <script>
 
-      //Hello! This is the start of the JavaScript.
+
+
+//Hello! This is the start of the JavaScript.
+
 
       function displayMessage(post) {
         let postHTML =
@@ -66,6 +70,11 @@
         });
       }
       document.querySelector(".filter").addEventListener("keyup", filterFeed);
+
+      var myVar;
+      function myFunction() {
+      myVar = setTimeout(showPage, 3000);
+}
 //This is the end of the JavaScript.
     </script>
 </body>
