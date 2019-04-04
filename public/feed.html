@@ -37,47 +37,56 @@
     </div>
     <div class="message-list">
     </div>
+    <div class="loader"></div>
     <script>
+
+
 
 //Hello! This is the start of the JavaScript.
 
-function displayMessage(post) {
-  let postHTML =
-  '<div class="post">'
-  + '  <img class="clickable" src=data:' + post.imagetype +';base64,'+ post.image + '>'
-  + '<div class="artname">' + post.artname + '</div>'
-  + '<div class="description">' + post.description + '</div>'
-  + '<div class="price">' + post.price + '</div>'
-  + '<div class="hashtags">' + post.hashtags + '</div>'
-  + '<div class="postId">' + post.id + '</div>'
-  +'<div class="time">' + new timeago().format(post.time) + '</div>'
-  + '</div>';
 
-  let messageList = document.querySelector(".message-list");
-  messageList.innerHTML += postHTML;
-}
+      function displayMessage(post) {
+        let postHTML =
+          '<div class="post">'
+          + '  <img class="clickable" src=data:' + post.imagetype + ';base64,' + post.image + '>'
+          + '<div class="artname">' + post.artname + '</div>'
+          + '<div class="description">' + post.description + '</div>'
+          + '<div class="price">' + post.price + '</div>'
+          + '<div class="hashtags">' + post.hashtags + '</div>'
+          + '<div class="postId">' + post.id + '</div>'
+          + '<div class="time">' + new timeago().format(post.time) + '</div>'
+          + '</div>';
 
-function createFeed(posts) {
-  posts.reverse();
-  posts.forEach(displayMessage);
-}
+        let messageList = document.querySelector(".message-list");
+        messageList.innerHTML += postHTML;
+      }
 
-fetch("/posts")
-  .then(response => response.json())
-  .then(createFeed);
+      function createFeed(posts) {
+        posts.reverse();
+        posts.forEach(displayMessage);
+      }
+
+      fetch("/posts")
+        .then(response => response.json())
+        .then(createFeed);
 
       function filterFeed(searchText) {
-        document.querySelectorAll(".post").forEach(function(element) {
+        document.querySelectorAll(".post").forEach(function (element) {
           searchText = document.querySelector(".filter").value;
-          console.log (searchText)
+          console.log(searchText)
           if (element.textContent.toLowerCase().includes(searchText.toLowerCase())) {
             element.classList.remove("hidden");
           } else {
             element.classList.add("hidden");
           }
-      });
+        });
       }
       document.querySelector(".filter").addEventListener("keyup", filterFeed);
+
+      var myVar;
+      function myFunction() {
+      myVar = setTimeout(showPage, 3000);
+}
 //This is the end of the JavaScript.
 
 function messageListClick(e) {
