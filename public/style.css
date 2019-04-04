@@ -151,6 +151,7 @@ max-width: 100%;
   margin: 0 auto;
   width: 200px;
   padding: 20px;
+  font-family:arial black;
   justify-content: center;
   grid-column: 3 / 4;
   grid-row: 2 / 3;
@@ -164,6 +165,27 @@ max-width: 100%;
 
   .postId {
     display: none;
+  }
+
+
+  .artname {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .description {
+
+  font-size: 16px;
+  font-style: italic;
+  }
+
+  .price {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .hashtags{
+    font-size: 16px;
   }
 
   .loader {
@@ -182,3 +204,4 @@ max-width: 100%;
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
