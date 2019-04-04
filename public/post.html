@@ -5,16 +5,16 @@
   <meta charset='utf-8'>
   <link rel="stylesheet" href="style.css">
   <nav style="font-family:'arial black' " class="topnav">
-    <div class="left" >
+    <div class="left">
       <logo class="logo">ʕ•ᴥ•ʔ UNBEARABLE ART</logo>
-      </div>
-      <div class="right" >
-          <a class="active" href="/">HOME</a>
-          <a href="feed.html">DISCOVER</a>
-          <a href="post.html">UPLOAD</a>
-          <a href="login.html">SIGN UP</a>
-          <input class="filter"> ● </input>
-      </div>
+    </div>
+    <div class="right">
+      <a class="active" href="/">HOME</a>
+      <a href="feed.html">DISCOVER</a>
+      <a href="post.html">UPLOAD</a>
+      <a href="login.html">SIGN UP</a>
+      <input class="filter"> ● </input>
+    </div>
   </nav>
 </head>
 
@@ -24,38 +24,39 @@
       PoST artwork.
     </div>
 
-      <div class="ULform">
+    <div class="ULform">
       <form class="form" method="post" action="/posts">
-      <label for="image">Upload Image</label> <input type="file" accept="image/*" name="image"  id="image" class="imageInput">
-      <label for="artname">Artwork Name</label><input type="text" id="artname" name="artname"
-        placeholder="Artwork name">
-      <label for="description">Description</label><input type="text" id="description" name="description"
-        placeholder="Description">
-      <label for="price">Price</label><input type="text" id="price" name="price" placeholder="Retail price">
-      <label for="hashtags">Hashtags (#)</label><input type="text" id="hashtags" name="hashtags"
-        placeholder="Add hashtags">
-      <button class="postButton">Submit</button>
+        <label for="image">Upload Image</label> <input type="file" accept="image/*" name="image" id="image"
+          class="imageInput">
+        <label for="artname">Artwork Name</label><input type="text" id="artname" name="artname"
+          placeholder="Artwork name">
+        <label for="description">Description</label><input type="text" id="description" name="description"
+          placeholder="Description">
+        <label for="price">Price</label><input type="text" id="price" name="price" placeholder="Retail price">
+        <label for="hashtags">Hashtags (#)</label><input type="text" id="hashtags" name="hashtags"
+          placeholder="Add hashtags">
+        <button class="postButton">Submit</button>
       </form>
-    <div class="note"></div>
+      <div class="note"></div>
+    </div>
   </div>
-</div>
   <script>
 
-      document.querySelector(".postButton").addEventListener("click", sendMessageToServer);
-  function sendMessageToServer(e) {
-    e.preventDefault();
-    let data = new FormData();
-    data.append('image', document.querySelector("#image").files[0]);
-    data.append ('artname', document.querySelector("#artname").value);
-    data.append ('description', document.querySelector("#description").value);
-    data.append ('price', document.querySelector("#price").value);
-    data.append ('hashtags', document.querySelector("#hashtags").value);
+    document.querySelector(".postButton").addEventListener("click", sendMessageToServer);
+    function sendMessageToServer(e) {
+      e.preventDefault();
+      let data = new FormData();
+      data.append('image', document.querySelector("#image").files[0]);
+      data.append('artname', document.querySelector("#artname").value);
+      data.append('description', document.querySelector("#description").value);
+      data.append('price', document.querySelector("#price").value);
+      data.append('hashtags', document.querySelector("#hashtags").value);
 
-    document.querySelector(".note").innerHTML = "Saved! Check out the feed for your post.";
-    fetch("/posts", {
-      method:"POST",
-      body: data,
-    });
+      document.querySelector(".note").innerHTML = "Saved! Check out the feed for your post.";
+      fetch("/posts", {
+        method: "POST",
+        body: data,
+      });
 
     }
 
